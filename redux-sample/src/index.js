@@ -7,11 +7,6 @@ import { createStore } from "redux";
 import rootReducer from "./redux/rootReducer";
 import Counter from "./components/Counter/container";
 
-import dayjs from "dayjs";
-import "dayjs/locale/ja";
-
-dayjs.locale("ja");
-
 const store = createStore(rootReducer);
 
 const App = () => (
