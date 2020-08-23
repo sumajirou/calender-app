@@ -1,17 +1,19 @@
 import React from "react";
-import { GridList, StylesProvider } from "@material-ui/core";
+import CalendarElement from "../CalendarElement";
+import { GridList } from "@material-ui/core";
 
 import * as styles from "./style.css";
 
 import dayjs from "dayjs";
 import "dayjs/locale/ja";
+import CalendarElenent from "../CalendarElement";
 
 dayjs.locale("ja");
 
 const createCalendar = () => {
   const firstDay = dayjs().startOf("month");
   const firstDayIndex = firstDay.day();
-  console.log(firstDayIndex);
+
   return Array(35)
     .fill(0)
     .map((_, i) => {
@@ -29,10 +31,10 @@ const CalendarBoard = () => {
     <div className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
         {calendar.map(c => (
-          <li key={c.toISOString}>
-            <div className={styles.element}>
+          <li key={c.toISOString()}>
+            <CalendarElenent>
               {c.date() == 1 ? c.format("M/D") : c.format("D")}
-            </div>
+            </CalendarElenent>
           </li>
         ))}
       </GridList>
