@@ -1,7 +1,19 @@
 .element {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  /* height: 18vh; */
+}
+
+.element_6rows {
+  height: 15vh;
+}
+
+.element_5rows {
   height: 18vh;
+}
+
+.element_4rows {
+  height: 22.5vh;
 }
 
 .date {

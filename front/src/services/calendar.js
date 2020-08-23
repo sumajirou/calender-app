@@ -2,27 +2,23 @@ import dayjs from "dayjs";
 
 export const createCalendar = () => {
   const firstDay = dayjs().startOf("month");
+
   const month = firstDay.month();
   const firstDayIndex = firstDay.day();
 
   // 最大6段必要
-  // let days = Array(7 * 6)
-  let days = Array(35)
-    .fill(0)
-    .map((_, i) => {
-      const diffFromFirstDay = i - firstDayIndex;
-      const day = firstDay.add(diffFromFirstDay, "day");
+  let days = Array(7 * 6).fill(0).map((_, i) => {
+    const diffFromFirstDay = i - firstDayIndex;
+    const day = firstDay.add(diffFromFirstDay, "day");
 
-      return day;
-    });
-  // // 第6週が次月なら削除
-  // if (month != days[35].month()) {
-  //   days.length = 35
-  // }
-  // // 第5週が次月なら削除
-  // if (month != days[28].month()) {
-  //   days.length = 28
-  // }
+    return day;
+  });
+
+  // 第6週がすべて次月なら削除
+  if (month != days[35].month()) days.length = 35
+  // 第5週がすべて次月なら削除
+  if (month != days[28].month()) days.length = 28
+
   return days;
 }
 
