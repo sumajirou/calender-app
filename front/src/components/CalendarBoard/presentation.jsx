@@ -6,15 +6,13 @@ import {
 
 import CalendarElenent from "../CalendarElement";
 
-import { createCalendar } from "../../services/calendar";
-
 import * as styles from "./style.css";
 
-const calendar = createCalendar();
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-const CalendarBoard = () => {
+const CalendarBoard = ({ calendar }) => {
+  console.log(calendar);
   // カレンダーの段数
   const row = calendar.length / 7
   return (

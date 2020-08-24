@@ -1,13 +1,11 @@
 import dayjs from "dayjs";
 
-export const createCalendar = () => {
-  const firstDay = dayjs().startOf("month");
-
-  const month = firstDay.month();
+export const createCalendar = ({ year, month }) => {
+  const firstDay = getMonth({ year, month })
   const firstDayIndex = firstDay.day();
 
   // 最大6段必要
-  let days = Array(7 * 6).fill(0).map((_, i) => {
+  const days = Array(7 * 6).fill(0).map((_, i) => {
     const diffFromFirstDay = i - firstDayIndex;
     const day = firstDay.add(diffFromFirstDay, "day");
 
@@ -15,12 +13,15 @@ export const createCalendar = () => {
   });
 
   // 第6週がすべて次月なら削除
-  if (month != days[35].month()) days.length = 35
+  if (month != days[35].month() + 1) days.length = 35
   // 第5週がすべて次月なら削除
-  if (month != days[28].month()) days.length = 28
+  if (month != days[28].month() + 1) days.length = 28
 
   return days;
 }
+export const getMonth = ({ year, month }) => {
+  return dayjs([year, month].join("-"))
+};
 
 export const isSameDay = (d1, d2) => {
   const format = "YYYYMMDD";
