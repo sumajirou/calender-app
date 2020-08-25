@@ -11,8 +11,7 @@ import * as styles from "./style.css";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-const CalendarBoard = ({ calendar }) => {
-  console.log(calendar);
+const CalendarBoard = ({ calendar, month }) => {
   // カレンダーの段数
   const row = calendar.length / 7
   return (
@@ -33,7 +32,7 @@ const CalendarBoard = ({ calendar }) => {
         ))}
         {calendar.map(c => (
           <li key={c.toISOString()}>
-            <CalendarElenent day={c} row={row} />
+            <CalendarElenent day={c} month={month} row={row} />
           </li>
         ))}
       </GridList>

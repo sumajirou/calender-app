@@ -19,9 +19,25 @@ export const createCalendar = ({ year, month }) => {
 
   return days;
 }
+
 export const getMonth = ({ year, month }) => {
   return dayjs([year, month].join("-"))
 };
+
+export const getNextMonth = month => {
+  const day = getMonth(month).add(1, "month");
+  return formatMonth(day);
+};
+
+export const getPreviousMonth = month => {
+  const day = getMonth(month).add(-1, "month");
+  return formatMonth(day);
+};
+
+export const formatMonth = day => ({
+  month: day.month() + 1,
+  year: day.year()
+})
 
 export const isSameDay = (d1, d2) => {
   const format = "YYYYMMDD";

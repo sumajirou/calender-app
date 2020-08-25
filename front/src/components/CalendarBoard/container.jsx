@@ -12,5 +12,9 @@ const mapDispatchToProps = ({ }) => ({});
 // mapStateToPropsで生成されたpropsとmapDispatchToPropsで生成されたpropsを引数にとり，
 // コンポーネントで使う形に整形して渡す関数
 // const mergeProps = stateProps => ({ calendar: createCalendar(stateProps.calendar) })
-const mergeProps = ({ calendar }) => ({ calendar: createCalendar(calendar) })
+const mergeProps = ({ calendar }) => ({
+  month: calendar,
+  calendar: createCalendar(calendar)
+})
+
 export default connect(mapStateToProps, null, mergeProps)(CalendarBoard);

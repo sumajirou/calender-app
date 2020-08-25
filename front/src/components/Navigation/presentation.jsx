@@ -18,7 +18,7 @@ const StyledTypography = withStyles({
   root: { margin: "0 30px 0 10px" }
 })(Typography);
 
-const Navigation = () => {
+const Navigation = ({ setNextMonth, setPreviousMonth }) => {
   return (
     <StyledToolbar >
       <IconButton>
@@ -28,10 +28,10 @@ const Navigation = () => {
       <StyledTypography color="textPrimary" variant="h5" component="h1">
         カレンダー
       </StyledTypography>
-      <IconButton size="small">
+      <IconButton size="small" onClick={setPreviousMonth}>
         <ArrowBackIos />
       </IconButton>
-      <IconButton size="small">
+      <IconButton size="small" onClick={setNextMonth}>
         <ArrowForwardIos />
       </IconButton>
     </StyledToolbar>

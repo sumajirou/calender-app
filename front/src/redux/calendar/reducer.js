@@ -1,14 +1,13 @@
 import dayjs from "dayjs";
 
-import { CALENDAR_SET_MONTH, calendarSetMonth } from "./actions";
+import { CALENDAR_SET_MONTH } from "./actions";
+
+import { formatMonth } from '../../services/calendar';
 
 const day = dayjs();
 
 // 初期state
-const init = {
-  year: day.year(),
-  month: day.month() + 1
-};
+const init = formatMonth(day);
 
 const calendarReducer = (state = init, { type, payload }) => {
   switch (type) {
