@@ -1,11 +1,16 @@
+/* CalendarBoardの画面に占める高さの割合 */
 .container {
   height: 90vh;
 }
 
+/* 左と上の線のスタイル．Gridの各要素が左と下の線のスタイルを持っているので．上下左右のスタイル定義しても問題ないと思うけど． */
+/* 試しに上下左右のスタイル定義をしたら，BoardElementと重なる部分だけが太くなってしまった． */
 .grid {
   border-left: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }
+
+/* 曜日表示部のスタイル */
 .days {
   border-right: 1px solid #ccc;
   padding-top: 10px;

@@ -1,5 +1,13 @@
 import dayjs from "dayjs";
 
+/**
+ * 月カレンダー表示用のdayjsオブジェクトの配列を作成します．
+ * 日曜始まりで要素数は(月の日数を表示できる最小の段数)*7です．
+ * @param {{year:number,month:number}} 
+ * @return {dayjs.Dayjs[]} dayjsオブジェクトの配列
+ * @example
+ * const days = createCalendar({year:2020, month:8})
+ */
 export const createCalendar = ({ year, month }) => {
   const firstDay = getMonth({ year, month })
   const firstDayIndex = firstDay.day();
@@ -34,6 +42,11 @@ export const getPreviousMonth = month => {
   return formatMonth(day);
 };
 
+/**
+ * dayjsオブジェクトから年と月を持つオブジェクトを生成(書き方あってる？)
+ * @param {dayjs.Dayjs} day 
+ * @return {{year:number,month:number}}
+ */
 export const formatMonth = day => ({
   month: day.month() + 1,
   year: day.year()

@@ -1,9 +1,11 @@
+/* 月カレンダーの1日分の要素 */
+/* borderプロパティ一つにまとめてみたが，罫線が太くなりダサくなってしまった． */
 .element {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  /* height: 18vh; */
 }
 
+/* 6段の場合の要素の高さ */
 .element_6rows {
   height: 15vh;
 }
@@ -21,6 +23,7 @@
   height: 24px;
 }
 
+/* 今日の日付を強調 */
 .today {
   display: inline-block;
   line-height: 24px;

@@ -14,6 +14,7 @@ const days = ["日", "月", "火", "水", "木", "金", "土"];
 const CalendarBoard = ({ calendar, month }) => {
   // カレンダーの段数
   const row = calendar.length / 7
+
   return (
     <div className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
